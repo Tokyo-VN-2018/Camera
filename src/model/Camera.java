@@ -1,22 +1,22 @@
 package model;
 
-import org.locationtech.jts.geom.Coordinate;
+import georegression.struct.point.Point3D_F32;
 
 public class Camera {
-    private Coordinate location;
+    private Point3D_F32 location;
     private int angleWidth;
     private int angleHeight;
     private int distance;
 
 
-    public Camera(Coordinate location, int angleWidth, int angleHeight, int distance) {
+    public Camera(Point3D_F32 location, int angleWidth, int angleHeight, int distance) {
         this.location = location;
         this.angleWidth = angleWidth;
         this.angleHeight = angleHeight;
         this.distance = distance;
     }
 
-    public Coordinate getLocation() {
+    public Point3D_F32 getLocation() {
         return this.location;
     }
 

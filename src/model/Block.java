@@ -1,15 +1,16 @@
 package model;
 
-import org.locationtech.jts.geom.Coordinate;
+
+import georegression.struct.point.Point3D_F32;
 
 public class Block {
-    private Coordinate coordinates[];
+    private Point3D_F32 coordinates[];
 
-    public Block(Coordinate coordinates[]) {
+    public Block(Point3D_F32 coordinates[]) {
         this.coordinates = coordinates;
     }
 
-    public Coordinate[] getPoints() {
+    public Point3D_F32[] getPoints() {
         return coordinates;
     }
 }

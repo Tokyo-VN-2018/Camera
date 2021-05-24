@@ -1,23 +1,18 @@
-import org.locationtech.jts.algorithm.CGAlgorithms3D;
-import org.locationtech.jts.geom.Coordinate;
-import org.locationtech.jts.noding.SegmentIntersectionDetector;
-import org.locationtech.jts.triangulate.Segment;
+import georegression.struct.line.LineSegment3D_F32;
+import georegression.struct.point.Point3D_F32;
 
 
 public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
-        Coordinate p1 = new Coordinate(1, 2, 3);
-        Coordinate p2 = new Coordinate(3, 4, 5);
         
-        Coordinate p3 = new Coordinate(1, 2, 3);
-        Coordinate p4 = new Coordinate(0, 3, 7);
-        double dis = CGAlgorithms3D.distance(p1, p2);
-        System.out.println(dis);
-        Segment s1 = new Segment(p1, p2);
-        Segment s2 = new Segment(p3, p4);
-        Coordinate x =  s1.intersection(s2);
-        System.out.println((x));
+        Point3D_F32 p1 = new Point3D_F32(0, 0, 0);
+        Point3D_F32 p2 = new Point3D_F32(2, 0, 0);
+        Point3D_F32 p3 = new Point3D_F32(0, 0, 3);
         
+        LineSegment3D_F32 s1 = new LineSegment3D_F32(p1, p2);
+        LineSegment3D_F32 s2 = new LineSegment3D_F32(p1, p3);
+        
+        System.out.println(s1.getLength());
     }
 }

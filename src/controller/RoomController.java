@@ -1,7 +1,6 @@
 package controller;
 
-import org.locationtech.jts.geom.Coordinate;
-
+import georegression.struct.point.Point3D_F32;
 import model.Block;
 import model.Camera;
 import model.Room;
@@ -17,7 +16,7 @@ public class RoomController {
     private int x,y,z;
     private State pointState[][][];
 
-    public RoomController(Coordinate coordinates[]) {
+    public RoomController(Point3D_F32 coordinates[]) {
         if (coordinates.length == 8) {
             roomModel = new Room(coordinates);
             initialize();

@@ -3,18 +3,18 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.locationtech.jts.geom.Coordinate;
+import georegression.struct.point.Point3D_F32;
 
 public class Room {
-    private Coordinate[] coordinates;
+    private Point3D_F32[] coordinates;
     private List<Block> blocks = new ArrayList<>();
     private List<Camera> cameras = new ArrayList<>();
 
-    public Room (Coordinate[] coordinates) {
+    public Room (Point3D_F32[] coordinates) {
         this.coordinates = coordinates;
     }
 
-    public Coordinate[] getCoordinates() {
+    public Point3D_F32[] getCoordinates() {
 		return coordinates;
 	}
 
