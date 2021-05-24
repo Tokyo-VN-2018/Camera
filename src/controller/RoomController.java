@@ -1,8 +1,9 @@
 package controller;
 
+import org.locationtech.jts.geom.Coordinate;
+
 import model.Block;
 import model.Camera;
-import model.Point;
 import model.Room;
 
 public class RoomController {
@@ -16,9 +17,9 @@ public class RoomController {
     private int x,y,z;
     private State pointState[][][];
 
-    public RoomController(Point points[]) {
-        if (points.length == 8) {
-            roomModel = new Room(points);
+    public RoomController(Coordinate coordinates[]) {
+        if (coordinates.length == 8) {
+            roomModel = new Room(coordinates);
             initialize();
         } else {
             throw new RuntimeException("Invalid number of points.");

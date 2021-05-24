@@ -1,20 +1,22 @@
 package model;
 
+import org.locationtech.jts.geom.Coordinate;
+
 public class Camera {
-    private Point location;
+    private Coordinate location;
     private int angleWidth;
     private int angleHeight;
     private int distance;
 
 
-    public Camera(Point location, int angleWidth, int angleHeight, int distance) {
+    public Camera(Coordinate location, int angleWidth, int angleHeight, int distance) {
         this.location = location;
         this.angleWidth = angleWidth;
         this.angleHeight = angleHeight;
         this.distance = distance;
     }
 
-    public Point getLocation() {
+    public Coordinate getLocation() {
         return this.location;
     }
 

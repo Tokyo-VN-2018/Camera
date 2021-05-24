@@ -1,13 +1,15 @@
 package model;
 
-public class Block {
-    private Point points[];
+import org.locationtech.jts.geom.Coordinate;
 
-    public Block(Point points[]) {
-        this.points = points;
+public class Block {
+    private Coordinate coordinates[];
+
+    public Block(Coordinate coordinates[]) {
+        this.coordinates = coordinates;
     }
 
-    public Point[] getPoints() {
-        return points;
+    public Coordinate[] getPoints() {
+        return coordinates;
     }
 }

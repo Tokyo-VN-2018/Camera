@@ -3,20 +3,22 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.locationtech.jts.geom.Coordinate;
+
 public class Room {
-    private Point[] points;
+    private Coordinate[] coordinates;
     private List<Block> blocks = new ArrayList<>();
     private List<Camera> cameras = new ArrayList<>();
 
-    public Room (Point[] points) {
-        this.points = points;
+    public Room (Coordinate[] coordinates) {
+        this.coordinates = coordinates;
     }
 
-    public Point[] getPoints() {
-        return this.points;
-    }
+    public Coordinate[] getCoordinates() {
+		return coordinates;
+	}
 
-    public List<Block> getBlocks() {
+	public List<Block> getBlocks() {
         return this.blocks;
     }
 
