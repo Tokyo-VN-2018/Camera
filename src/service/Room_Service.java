@@ -8,5 +8,5 @@ public interface Room_Service {
 
 	boolean containBlock_check(Room room, Block block);
 	boolean installCamera_check(Room room, Camera camera);
-	boolean isValid(Room room);
+	boolean checkValidRoom(Room room);
 }
