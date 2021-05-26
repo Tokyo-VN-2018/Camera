@@ -1,78 +1,48 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
 
-import georegression.struct.line.LineSegment3D_F32;
-import georegression.struct.plane.PlaneNormal3D_F32;
 import georegression.struct.point.Point3D_F32;
-import georegression.struct.point.Vector3D_F32;
+import service.ReadFile_Service;
+import service.impl.ReadFile_Service_Impl;
 
 
 public class Main {
     public static void main(String[] args) throws Exception {
     	
-        String path = args[0];
-        
-        List<String> strings = new ArrayList<>();
-        
-        File file = new File(path);
-        
-		try {
-		Scanner scan = new Scanner(file);
-		while (scan.hasNextLine()) {
-			String scannedline = scan.nextLine();
-			strings.add(scannedline);
-		}
-		scan.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-        
-		String stringCoorRoom =  strings.get(0);
-		int numOfBlock  = Integer.parseInt(strings.get(1));
+    	ReadFile_Service readFile_Service = new ReadFile_Service_Impl();
+    	
+    	// Get file's content
+    	List<String> strings = readFile_Service.readFilefromS(args[0]);
 		
-		List<String> stringCoorBlock = new ArrayList<>();
-		for (int i = 2; i <= 1 + Integer.parseInt(strings.get(1)); i++) {
-			stringCoorBlock.add(strings.get(i));
+    	// Get room coordinates
+		Point3D_F32[] coorRoom = readFile_Service.getCoorRoom(strings);
+		for (Point3D_F32 point3d_F32 : coorRoom) {
+			System.out.println(point3d_F32);
 		}
 		
-		List<String> stringCoorCam = new ArrayList<>();
-		int numOfCam =  Integer.parseInt(strings.get(2 + Integer.parseInt(strings.get(1))));
-		for (int i = 3 + Integer.parseInt(strings.get(1)); i < strings.size(); i++) {
-			stringCoorCam.add(strings.get(i));
-		}
+		System.out.println("----------");
+		// Get number of Blocks
+		int nOB = readFile_Service.getNumOfBlock(strings);
+		System.out.println(nOB);
 		
-		System.out.println(stringCoorRoom);
-		System.out.println(numOfBlock);
-		for (String string : stringCoorBlock) {
-			System.out.println(string);
+		// Get blocks' coordinates
+		List<Point3D_F32[]> coorBlocks = readFile_Service.getCoorBlock(strings);
+		for (Point3D_F32[] point3d_F32s : coorBlocks) {
+			for (Point3D_F32 coor : point3d_F32s) {
+				System.out.println(coor);
+			}
 		}
+		System.out.println("-----------");
+		// Get number of Cameras
+		int numOfCam = readFile_Service.getNumOfCam(strings);
 		System.out.println(numOfCam);
-		for (String string : stringCoorCam) {
-			System.out.println(string);
+		
+		// Get cameras' coordinates ( 1st, 2nd, 3rd is camera's location, 4th, 5th is camera's angle)
+		List<Float[]> camInfos = readFile_Service.getCamInfo(strings);
+		for (Float[] camInfo : camInfos) {
+			for (Float floats : camInfo) {
+				System.out.print(floats+" ");
+			}
+			System.out.println();
 		}
-//        Point3D_F32 p1 = new Point3D_F32(0, 0, 0);
-//        Point3D_F32 p2 = new Point3D_F32(2, 0, 0);
-//        Point3D_F32 p3 = new Point3D_F32(0, 0, 4);
-//        
-//        LineSegment3D_F32 s1 = new LineSegment3D_F32(p1, p2);
-//        LineSegment3D_F32 s2 = new LineSegment3D_F32(p1, p3);
-//        
-//        System.out.println(s1.getLength());
-//        
-//        Vector3D_F32 v1 = new Vector3D_F32(p1, p2);
-//        Vector3D_F32 v2 = new Vector3D_F32(p1, p3);
-//        System.out.println(v1.dot(v2));
-//        System.out.println(p1.toVector());
-//        
-//        PlaneNormal3D_F32 m1 = new PlaneNormal3D_F32(p1, v1);
-//        System.out.println(m1);
-//        
-//        System.out.println(p2);
-        
-        
     }
 }

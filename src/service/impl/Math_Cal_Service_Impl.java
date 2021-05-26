@@ -46,6 +46,15 @@ public class Math_Cal_Service_Impl implements Math_Cal_Service{
 		return false;
 	}
 
+	@Override
+	public float volumeRecCal(Point3D_F32[] coordinates) {
+		LineSegment3D_F32 a = new LineSegment3D_F32(coordinates[0], coordinates[1]);
+		LineSegment3D_F32 b = new LineSegment3D_F32(coordinates[0], coordinates[3]);
+		LineSegment3D_F32 c = new LineSegment3D_F32(coordinates[0], coordinates[4]);
+		
+		return a.getLength()*b.getLength()*c.getLength();
+	}
+
 	 
 
 }
