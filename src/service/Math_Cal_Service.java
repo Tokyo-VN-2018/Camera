@@ -14,6 +14,10 @@ public interface Math_Cal_Service {
 	// Calculate volume rectangular prism
 	float volumeRecCal(Point3D_F32[] coordinates);
 	
+	// Get intersection between Block and line
 	List<Point3D_F32> getInterBlockAndSegment(Block block, LineParametric3D_F32 line);
+	
+	// Make line from two point
+	LineParametric3D_F32 getLineParametric(Point3D_F32 p1, Point3D_F32 p2);
 	
 }

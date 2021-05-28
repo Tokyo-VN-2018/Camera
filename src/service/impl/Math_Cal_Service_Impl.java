@@ -133,4 +133,12 @@ public class Math_Cal_Service_Impl implements Math_Cal_Service{
 		}
 		return results;
 	}
+
+	@Override
+	public LineParametric3D_F32 getLineParametric(Point3D_F32 p1, Point3D_F32 p2) {
+		float slopeX = p1.x - p2.x;
+		float slopeY = p1.y - p2.y;
+		float slopeZ = p1.z - p2.z;
+		return new LineParametric3D_F32(p1.x, p1.y, p1.z, slopeX, slopeY, slopeZ);
+	}
 }
