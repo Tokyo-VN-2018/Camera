@@ -1,8 +1,8 @@
 package controller;
 
+import georegression.struct.point.Point3D_F32;
 import model.Block;
 import model.Camera;
-import model.Point;
 import model.Room;
 import service.MathCalService;
 import service.RoomService;
@@ -23,18 +23,12 @@ public class RoomController {
     private RoomService roomService = new RoomServiceImpl();
     private MathCalService mathCalService = new MathCalServiceImpl();
 
-<<<<<<< Updated upstream
-    public RoomController(Point points[]) {
-        if (points.length == 8) {
-            roomModel = new Room(points);
-=======
     public RoomController(Point3D_F32 coordinates[]) {
         if (coordinates.length == 8) {
             roomModel = new Room(coordinates);
             if (!roomService.checkValidRoom(roomModel)) {
                 throw new RuntimeException("Invalid room.");
             }
->>>>>>> Stashed changes
             initialize();
         } else {
             throw new RuntimeException("Invalid number of points.");

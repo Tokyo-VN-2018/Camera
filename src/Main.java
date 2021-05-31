@@ -1,8 +1,3 @@
-<<<<<<< Updated upstream
-public class Main {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
-=======
 import java.util.List;
 
 import georegression.struct.point.Point3D_F32;
@@ -49,6 +44,5 @@ public class Main {
 			}
 			System.out.println();
 		}
->>>>>>> Stashed changes
     }
 }
