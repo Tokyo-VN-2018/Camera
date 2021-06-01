@@ -80,6 +80,7 @@ public class RoomController {
     public void calculateObservablePoint() {
         for (Camera camera : roomModel.getCameras()) {
             Point3D_F32[] points = roomService.findFieldOfView(roomModel, camera);
+            
             if (points[0].getX() == points[1].getX() && points[0].getX() == points[2].getX()) {
                 for (int i = (int)points[0].getZ(); i < (int)points[2].getZ(); i++) {
                     for (int j = (int)points[0].getY(); j < (int)points[1].getY(); j++) {
@@ -185,6 +186,14 @@ public class RoomController {
                 }
             }
         }
+        /* for (int i = 0; i < z; i++) {
+            for (int j = 0; j < x; j++) {
+                if (pointState[j][99][i] == State.OBSERVABLE) {
+                    System.out.print(1);
+                } else System.out.print(0);
+            }
+            System.out.println();
+        } */
         System.out.println(count/(x*y*z));
         return this.pointState;
     }

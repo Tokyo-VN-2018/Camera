@@ -113,8 +113,8 @@ public class RoomServiceImpl implements RoomService {
 			int roomDistance = (int)(room.getCoordinates()[6].getX() - room.getCoordinates()[0].getX());
 			cameraDistance = cameraDistance > roomDistance ? roomDistance : cameraDistance;
 
-			int cameraHalfHeight = (int)(Math.tan(camera.getAngleHeight()/2)*cameraDistance);
-			int cameraHalfWidth = (int)(Math.tan(camera.getAngleWidth()/2)*cameraDistance);
+			int cameraHalfHeight = (int)(Math.tan(Math.PI*camera.getAngleHeight()/360)*cameraDistance);
+			int cameraHalfWidth = (int)(Math.tan(Math.PI*camera.getAngleWidth()/360)*cameraDistance);
 
 			points[0] = new Point3D_F32(x + cameraDistance, y - cameraHalfWidth, z - cameraHalfHeight);
 			points[1] = new Point3D_F32(x + cameraDistance, y + cameraHalfWidth, z - cameraHalfHeight);
@@ -123,8 +123,8 @@ public class RoomServiceImpl implements RoomService {
 			int roomDistance = (int)(room.getCoordinates()[6].getX() - room.getCoordinates()[0].getX());
 			cameraDistance = cameraDistance > roomDistance ? roomDistance : cameraDistance;
 			
-			int cameraHalfHeight = (int)(Math.tan(camera.getAngleHeight()/2)*cameraDistance);
-			int cameraHalfWidth = (int)(Math.tan(camera.getAngleWidth()/2)*cameraDistance);
+			int cameraHalfHeight = (int)(Math.tan(Math.PI*camera.getAngleHeight()/360)*cameraDistance);
+			int cameraHalfWidth = (int)(Math.tan(Math.PI*camera.getAngleWidth()/360)*cameraDistance);
 
 			points[0] = new Point3D_F32(x - cameraDistance, y - cameraHalfWidth, z - cameraHalfHeight);
 			points[1] = new Point3D_F32(x - cameraDistance, y + cameraHalfWidth, z - cameraHalfHeight);
@@ -133,8 +133,8 @@ public class RoomServiceImpl implements RoomService {
 			int roomDistance = (int)(room.getCoordinates()[6].getY() - room.getCoordinates()[0].getY());
 			cameraDistance = cameraDistance > roomDistance ? roomDistance : cameraDistance;
 			
-			int cameraHalfHeight = (int)(Math.tan(camera.getAngleHeight()/2)*cameraDistance);
-			int cameraHalfWidth = (int)(Math.tan(camera.getAngleWidth()/2)*cameraDistance);
+			int cameraHalfHeight = (int)(Math.tan(Math.PI*camera.getAngleHeight()/360)*cameraDistance);
+			int cameraHalfWidth = (int)(Math.tan(Math.PI*camera.getAngleWidth()/360)*cameraDistance);
 
 			points[0] = new Point3D_F32(x - cameraHalfWidth, y + cameraDistance, z - cameraHalfHeight);
 			points[1] = new Point3D_F32(x + cameraHalfWidth, y + cameraDistance, z - cameraHalfHeight);
@@ -143,8 +143,8 @@ public class RoomServiceImpl implements RoomService {
 			int roomDistance = (int)(room.getCoordinates()[6].getX() - room.getCoordinates()[0].getX());
 			cameraDistance = cameraDistance > roomDistance ? roomDistance : cameraDistance;
 			
-			int cameraHalfHeight = (int)(Math.tan(camera.getAngleHeight()/2)*cameraDistance);
-			int cameraHalfWidth = (int)(Math.tan(camera.getAngleWidth()/2)*cameraDistance);
+			int cameraHalfHeight = (int)(Math.tan(Math.PI*camera.getAngleHeight()/360)*cameraDistance);
+			int cameraHalfWidth = (int)(Math.tan(Math.PI*camera.getAngleWidth()/360)*cameraDistance);
 
 			points[0] = new Point3D_F32(x - cameraHalfWidth, y - cameraDistance, z - cameraHalfHeight);
 			points[1] = new Point3D_F32(x + cameraHalfWidth, y - cameraDistance, z - cameraHalfHeight);
@@ -153,8 +153,8 @@ public class RoomServiceImpl implements RoomService {
 			int roomDistance = (int)(room.getCoordinates()[6].getX() - room.getCoordinates()[0].getX());
 			cameraDistance = cameraDistance > roomDistance ? roomDistance : cameraDistance;
 			
-			int cameraHalfHeight = (int)(Math.tan(camera.getAngleHeight()/2)*cameraDistance);
-			int cameraHalfWidth = (int)(Math.tan(camera.getAngleWidth()/2)*cameraDistance);
+			int cameraHalfHeight = (int)(Math.tan(Math.PI*camera.getAngleHeight()/360)*cameraDistance);
+			int cameraHalfWidth = (int)(Math.tan(Math.PI*camera.getAngleWidth()/360)*cameraDistance);
 
 			points[0] = new Point3D_F32(x - cameraHalfWidth, y - cameraHalfHeight, z - cameraDistance);
 			points[1] = new Point3D_F32(x + cameraHalfWidth, y - cameraHalfHeight, z - cameraDistance);

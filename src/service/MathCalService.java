@@ -5,7 +5,6 @@ import java.util.List;
 import georegression.struct.line.LineParametric3D_F32;
 import georegression.struct.point.Point3D_F32;
 import model.Block;
-import model.Camera;
 
 public interface MathCalService {
 	
