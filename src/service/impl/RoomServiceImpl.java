@@ -11,7 +11,7 @@ import service.RoomService;
 
 public class RoomServiceImpl implements RoomService {
 
-	MathCalService mathCalService;
+	MathCalService mathCalService = new MathCalServiceImpl();
 
 	@Override
 	public boolean isValidBlockLocation(Room room, Block block) {
@@ -19,9 +19,9 @@ public class RoomServiceImpl implements RoomService {
 		Point3D_F32[] location = block.getCoordinates();
 
 		for (Point3D_F32 point3d_F32 : location) {
-			if (coordinates[0].getX() < point3d_F32.getX() && point3d_F32.getX() < coordinates[1].getX()) {
-				if (coordinates[0].getX() < point3d_F32.getY() && point3d_F32.getY() < coordinates[3].getY()) {
-					if (coordinates[0].getZ() < point3d_F32.getZ() && point3d_F32.getZ() < coordinates[4].getZ()) {
+			if (coordinates[0].getX() <= point3d_F32.getX() && point3d_F32.getX() <= coordinates[1].getX()) {
+				if (coordinates[0].getY() <= point3d_F32.getY() && point3d_F32.getY() <= coordinates[3].getY()) {
+					if (coordinates[0].getZ() <= point3d_F32.getZ() && point3d_F32.getZ() <= coordinates[4].getZ()) {
 						
 					}else {
 						return false;

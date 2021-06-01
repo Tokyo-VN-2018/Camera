@@ -21,7 +21,7 @@ public class ReadFileServiceImpl implements ReadFileService{
 		
 		int j = 0;
 		for (int i = 0; i < tokens.length; i++) {
-			float token = Float.parseFloat(tokens[i])*10;
+			float token = Float.parseFloat(tokens[i])*100;
 			if (i%3 == 0) {
 				coordinates[j] = new Point3D_F32();
 				coordinates[j].x = token;
@@ -109,7 +109,7 @@ public class ReadFileServiceImpl implements ReadFileService{
 			Float[] camInfo = new Float[5];
 			for (int i = 0; i < tokens.length; i++) {
 				if (i < 3) {
-					camInfo[i] = Float.parseFloat(tokens[i])*10;
+					camInfo[i] = Float.parseFloat(tokens[i])*100;
 				}else {
 					camInfo[i] = Float.parseFloat(tokens[i]);
 				}

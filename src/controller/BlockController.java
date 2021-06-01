@@ -6,10 +6,11 @@ import service.BlockService;
 import service.impl.BlockServiceImpl;
 
 public class BlockController {  
-    private BlockService blockService = new BlockServiceImpl();
+    private BlockService blockService;
     private Block blockModel;
 
     public BlockController(Point3D_F32 coordinates[]) {
+        blockService = new BlockServiceImpl();
         if (coordinates.length == 8) {
             blockModel = new Block(coordinates);
             if (!blockService.checkValidBlock(blockModel)) {

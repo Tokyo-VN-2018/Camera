@@ -7,7 +7,7 @@ import service.MathCalService;
 
 public class BlockServiceImpl implements BlockService{
 	
-	MathCalService mathCalService;
+	MathCalService mathCalService = new MathCalServiceImpl();
 
 	@Override
 	public boolean checkValidBlock(Block block) {
