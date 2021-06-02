@@ -12,7 +12,7 @@ import service.ReadFileService;
 public class ReadFileServiceImpl implements ReadFileService{
 
 	@Override
-	public Point3D_F32[] extractCoor(String stringCoor) {
+	public Point3D_F32[] extractCoor(String stringCoor, int accuracy) {
 		
 		Point3D_F32[] coordinates = new Point3D_F32[8];
 		
@@ -21,7 +21,7 @@ public class ReadFileServiceImpl implements ReadFileService{
 		
 		int j = 0;
 		for (int i = 0; i < tokens.length; i++) {
-			float token = Float.parseFloat(tokens[i])*100;
+			float token = Float.parseFloat(tokens[i])*accuracy;
 			if (i%3 == 0) {
 				coordinates[j] = new Point3D_F32();
 				coordinates[j].x = token;
@@ -60,9 +60,9 @@ public class ReadFileServiceImpl implements ReadFileService{
 	}
 
 	@Override
-	public Point3D_F32[] getCoorRoom(List<String> strings) {
+	public Point3D_F32[] getCoorRoom(List<String> strings, int accuracy) {
 		String stringCoorRoom =  strings.get(0);
-		Point3D_F32[] coorRoom = extractCoor(stringCoorRoom);
+		Point3D_F32[] coorRoom = extractCoor(stringCoorRoom, accuracy);
 		return coorRoom;
 	}
 
@@ -73,7 +73,7 @@ public class ReadFileServiceImpl implements ReadFileService{
 	}
 
 	@Override
-	public List<Point3D_F32[]> getCoorBlock(List<String> strings) {
+	public List<Point3D_F32[]> getCoorBlock(List<String> strings, int accuracy) {
 		
 		List<Point3D_F32[]> results = new ArrayList<>();
 		
@@ -83,7 +83,7 @@ public class ReadFileServiceImpl implements ReadFileService{
 		}
 		
 		for (String string : stringCoorBlock) {
-			Point3D_F32[] coorBlock = extractCoor(string);
+			Point3D_F32[] coorBlock = extractCoor(string, accuracy);
 			results.add(coorBlock);
 		}
 		
@@ -97,7 +97,7 @@ public class ReadFileServiceImpl implements ReadFileService{
 	}
 
 	@Override
-	public List<Float[]> getCamInfo(List<String> strings) {
+	public List<Float[]> getCamInfo(List<String> strings, int accuracy) {
 		List<Float[]> info = new ArrayList<>();
 		List<String> stringCoorCam = new ArrayList<>();
 		for (int i = 3 + Integer.parseInt(strings.get(1)); i < strings.size(); i++) {
@@ -109,7 +109,7 @@ public class ReadFileServiceImpl implements ReadFileService{
 			Float[] camInfo = new Float[5];
 			for (int i = 0; i < tokens.length; i++) {
 				if (i < 3) {
-					camInfo[i] = Float.parseFloat(tokens[i])*100;
+					camInfo[i] = Float.parseFloat(tokens[i])*accuracy;
 				}else {
 					camInfo[i] = Float.parseFloat(tokens[i]);
 				}

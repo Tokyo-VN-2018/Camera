@@ -40,12 +40,11 @@ public class Application {
 
 	public static void main(String[] args) {
 		
-		
-		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Application window = new Application();
+					window.frmCameraProjector.setLocationRelativeTo(null);
 					window.frmCameraProjector.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -61,83 +60,85 @@ public class Application {
 
 	private void initialize() {
 		frmCameraProjector = new JFrame();
+		frmCameraProjector.getContentPane().setBackground(Color.PINK);
 		frmCameraProjector.setTitle("Camera Projector");
 		frmCameraProjector.setBounds(100, 100, 808, 518);
 		frmCameraProjector.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCameraProjector.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Tokyo Team");
-		lblNewLabel.setForeground(Color.RED);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel.setFont(new Font("Showcard Gothic", Font.BOLD, 28));
-		lblNewLabel.setBounds(277, 10, 241, 48);
-		frmCameraProjector.getContentPane().add(lblNewLabel);
+		JLabel lblTeam = new JLabel("Tokyo Team");
+		lblTeam.setForeground(Color.RED);
+		lblTeam.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTeam.setVerticalAlignment(SwingConstants.TOP);
+		lblTeam.setFont(new Font("Showcard Gothic", Font.BOLD, 28));
+		lblTeam.setBounds(277, 10, 241, 48);
+		frmCameraProjector.getContentPane().add(lblTeam);
 		
-		JLabel lblNewLabel_1 = new JLabel("Object-oriented programming Class");
-		lblNewLabel_1.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(181, 390, 408, 41);
-		frmCameraProjector.getContentPane().add(lblNewLabel_1);
+		JLabel lblClass = new JLabel("Object-oriented programming Class");
+		lblClass.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
+		lblClass.setHorizontalAlignment(SwingConstants.CENTER);
+		lblClass.setBounds(181, 390, 408, 41);
+		frmCameraProjector.getContentPane().add(lblClass);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Lecturer: Nguyen Tien Thanh");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
-		lblNewLabel_1_1.setBounds(191, 430, 408, 41);
-		frmCameraProjector.getContentPane().add(lblNewLabel_1_1);
+		JLabel lblLecturer = new JLabel("Lecturer: Nguyen Tien Thanh");
+		lblLecturer.setBackground(Color.LIGHT_GRAY);
+		lblLecturer.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLecturer.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
+		lblLecturer.setBounds(191, 430, 408, 41);
+		frmCameraProjector.getContentPane().add(lblLecturer);
 		
-		JLabel lblNewLabel_1_1_1 = new JLabel("MEMBERS");
-		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1_1_1.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
-		lblNewLabel_1_1_1.setBounds(24, 83, 110, 41);
-		frmCameraProjector.getContentPane().add(lblNewLabel_1_1_1);
+		JLabel Memberslbl = new JLabel("MEMBERS");
+		Memberslbl.setHorizontalAlignment(SwingConstants.LEFT);
+		Memberslbl.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
+		Memberslbl.setBounds(24, 83, 110, 41);
+		frmCameraProjector.getContentPane().add(Memberslbl);
 		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("NGUYEN VIET HOANG");
-		lblNewLabel_1_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1_1_1_1.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
-		lblNewLabel_1_1_1_1.setBounds(24, 134, 201, 41);
-		frmCameraProjector.getContentPane().add(lblNewLabel_1_1_1_1);
+		JLabel lblName1 = new JLabel("NGUYEN VIET HOANG");
+		lblName1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblName1.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
+		lblName1.setBounds(24, 134, 201, 41);
+		frmCameraProjector.getContentPane().add(lblName1);
 		
-		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("NGO VAN ANH");
-		lblNewLabel_1_1_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1_1_1_1_1.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
-		lblNewLabel_1_1_1_1_1.setBounds(24, 185, 201, 41);
-		frmCameraProjector.getContentPane().add(lblNewLabel_1_1_1_1_1);
+		JLabel lblName2 = new JLabel("NGO VAN ANH");
+		lblName2.setHorizontalAlignment(SwingConstants.LEFT);
+		lblName2.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
+		lblName2.setBounds(24, 185, 201, 41);
+		frmCameraProjector.getContentPane().add(lblName2);
 		
-		JLabel lblNewLabel_1_1_1_1_2 = new JLabel("CHU TIEN DAT");
-		lblNewLabel_1_1_1_1_2.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1_1_1_1_2.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
-		lblNewLabel_1_1_1_1_2.setBounds(24, 236, 201, 41);
-		frmCameraProjector.getContentPane().add(lblNewLabel_1_1_1_1_2);
+		JLabel lblName3 = new JLabel("CHU TIEN DAT");
+		lblName3.setHorizontalAlignment(SwingConstants.LEFT);
+		lblName3.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
+		lblName3.setBounds(24, 236, 201, 41);
+		frmCameraProjector.getContentPane().add(lblName3);
 		
-		JLabel lblNewLabel_1_1_1_1_3 = new JLabel("NGUYEN TIEN DUNG");
-		lblNewLabel_1_1_1_1_3.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1_1_1_1_3.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
-		lblNewLabel_1_1_1_1_3.setBounds(24, 287, 201, 41);
-		frmCameraProjector.getContentPane().add(lblNewLabel_1_1_1_1_3);
+		JLabel lblName4 = new JLabel("NGUYEN TIEN DUNG");
+		lblName4.setHorizontalAlignment(SwingConstants.LEFT);
+		lblName4.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
+		lblName4.setBounds(24, 287, 201, 41);
+		frmCameraProjector.getContentPane().add(lblName4);
 		
-		JLabel lblNewLabel_1_1_1_2 = new JLabel("INPUT DATA");
-		lblNewLabel_1_1_1_2.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1_1_1_2.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
-		lblNewLabel_1_1_1_2.setBounds(513, 83, 110, 41);
-		frmCameraProjector.getContentPane().add(lblNewLabel_1_1_1_2);
+		JLabel lblInput = new JLabel("INPUT DATA");
+		lblInput.setHorizontalAlignment(SwingConstants.LEFT);
+		lblInput.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
+		lblInput.setBounds(513, 83, 110, 41);
+		frmCameraProjector.getContentPane().add(lblInput);
 		
-		JLabel lblNewLabel_1_1_1_3 = new JLabel("FILE LINK");
-		lblNewLabel_1_1_1_3.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1_1_1_3.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
-		lblNewLabel_1_1_1_3.setBounds(271, 134, 110, 41);
-		frmCameraProjector.getContentPane().add(lblNewLabel_1_1_1_3);
+		JLabel lblFileLink = new JLabel("FILE LINK");
+		lblFileLink.setHorizontalAlignment(SwingConstants.LEFT);
+		lblFileLink.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
+		lblFileLink.setBounds(271, 134, 110, 41);
+		frmCameraProjector.getContentPane().add(lblFileLink);
 		
 		txtFileLink = new JTextField();
 		txtFileLink.setBounds(391, 135, 352, 25);
 		frmCameraProjector.getContentPane().add(txtFileLink);
 		txtFileLink.setColumns(10);
 		
-		JLabel lblNewLabel_1_1_1_3_1 = new JLabel("ACCURACY");
-		lblNewLabel_1_1_1_3_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1_1_1_3_1.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
-		lblNewLabel_1_1_1_3_1.setBounds(271, 198, 110, 41);
-		frmCameraProjector.getContentPane().add(lblNewLabel_1_1_1_3_1);
+		JLabel lblAccuracy = new JLabel("ACCURACY");
+		lblAccuracy.setHorizontalAlignment(SwingConstants.LEFT);
+		lblAccuracy.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
+		lblAccuracy.setBounds(271, 198, 110, 41);
+		frmCameraProjector.getContentPane().add(lblAccuracy);
 		
 		txtAccuracy = new JTextField();
 		txtAccuracy.setBounds(391, 197, 352, 25);
@@ -166,7 +167,7 @@ public class Application {
 			    	List<String> strings = readFileService.readFilefromS(fileLink);
 			    	
 			    	// Get room coordinates
-			    	Point3D_F32[] coorRoom = readFileService.getCoorRoom(strings);
+			    	Point3D_F32[] coorRoom = readFileService.getCoorRoom(strings, accu);
 			    	
 			    	// Initialize Room Controller
 			    	RoomController roomController = new RoomController(coorRoom);
@@ -175,7 +176,7 @@ public class Application {
 //					int nOB = readFileService.getNumOfBlock(strings);
 					
 					// Get blocks' coordinates
-					List<Point3D_F32[]> coorBlocks = readFileService.getCoorBlock(strings);
+					List<Point3D_F32[]> coorBlocks = readFileService.getCoorBlock(strings, accu);
 					
 					// Add block to Room
 					for (Point3D_F32[] blockPoints : coorBlocks) {
@@ -186,7 +187,7 @@ public class Application {
 					//int numOfCam = readFileService.getNumOfCam(strings);
 					
 					// Get cameras' coordinates ( 1st, 2nd, 3rd is camera's location, 4th, 5th is camera's angle)
-					List<Float[]> camInfos = readFileService.getCamInfo(strings);
+					List<Float[]> camInfos = readFileService.getCamInfo(strings, accu);
 					
 					for (Float[] camPoints : camInfos) {
 						roomController.addCamera(new Camera(new Point3D_F32(camPoints[0],camPoints[1],camPoints[2]),camPoints[3].intValue(), camPoints[4].intValue(), 10000));
@@ -201,6 +202,7 @@ public class Application {
 					boolean[][][] state = roomController.getPointsState();
 					
 					ViewFrame viewFrame = new ViewFrame(state, percentObser);
+					viewFrame.setLocationRelativeTo(frmCameraProjector);
 					viewFrame.setVisible(true);
 					
 
