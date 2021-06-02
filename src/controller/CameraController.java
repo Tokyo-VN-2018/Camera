@@ -8,4 +8,8 @@ public class CameraController {
     public CameraController(Camera camera) {
         this.cameraModel = camera;
     }
+
+    public Camera getCameraModel() {
+        return this.cameraModel;
+    }
 }
