@@ -3,7 +3,6 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import georegression.struct.line.LineParametric3D_F32;
 import georegression.struct.point.Point3D_F32;
 import model.Block;
@@ -17,16 +16,13 @@ import service.impl.MathCalServiceImpl;
 import service.impl.RoomServiceImpl;
 
 public class RoomController {
-    private enum State {
-        BLOCKED,
-        OBSERVABLE,
-        UNOBSERVABLE
-    }
+    public static final boolean OBSERVABLE = true;
+    public static final boolean UNOBSERVABLE = false;
 
     private Room roomModel;
     private int x, y, z;
     private int x0, y0, z0;
-    private State pointState[][][];
+    private boolean pointState[][][];
     private RoomService roomService = new RoomServiceImpl();
     private MathCalService mathCalService = new MathCalServiceImpl();
     private LineService lineService = new LineServiceImpl();
@@ -53,11 +49,11 @@ public class RoomController {
         x = (int)roomModel.getCoordinates()[6].getX() - x0;
         y = (int)roomModel.getCoordinates()[6].getY() - y0;
         z = (int)roomModel.getCoordinates()[6].getZ() - z0;
-        pointState = new State[x][y][z];
+        pointState = new boolean[x][y][z];
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 for (int k = 0; k < z; k++) {
-                    pointState[i][j][k] = State.UNOBSERVABLE;
+                    pointState[i][j][k] = UNOBSERVABLE;
                 }
             }
         }
@@ -107,7 +103,7 @@ public class RoomController {
                                 continue;
                             }
                             //System.out.println(obserX + " " + obserY + " " + obserZ);
-                            this.pointState[(int)obserX - x0][(int)obserY - x0][(int)obserZ - z0] = State.OBSERVABLE;
+                            this.pointState[(int)obserX - x0][(int)obserY - x0][(int)obserZ - z0] = OBSERVABLE;
                         }
                     }
                 }
@@ -137,7 +133,7 @@ public class RoomController {
                                 continue;
                             }
                             //System.out.println(obserX + " " + obserY + " " + obserZ);
-                            this.pointState[(int)obserX - x0][(int)obserY - x0][(int)obserZ - z0] = State.OBSERVABLE;
+                            this.pointState[(int)obserX - x0][(int)obserY - x0][(int)obserZ - z0] = OBSERVABLE;
                         }
                     }
                 }
@@ -167,7 +163,7 @@ public class RoomController {
                                 continue;
                             }
                             //System.out.println(obserX + " " + obserY + " " + obserZ);
-                            this.pointState[(int)obserX - x0][(int)obserY - x0][(int)obserZ - z0] = State.OBSERVABLE;
+                            this.pointState[(int)obserX - x0][(int)obserY - x0][(int)obserZ - z0] = OBSERVABLE;
                         }
                     }
                 }
@@ -175,26 +171,22 @@ public class RoomController {
         }
     }
 
-    public State[][][] getPointsState() {
+    public boolean[][][] getPointsState() {
+        return this.pointState;
+    }
+
+    public float getObservablePercent() {
         float count = 0;
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 for (int k = 0; k < z; k++) {
-                    if (pointState[i][j][k] == State.OBSERVABLE) {
+                    if (pointState[i][j][k] == OBSERVABLE) {
                         count++;
                     }
                 }
             }
         }
-        /* for (int i = 0; i < z; i++) {
-            for (int j = 0; j < x; j++) {
-                if (pointState[j][99][i] == State.OBSERVABLE) {
-                    System.out.print(1);
-                } else System.out.print(0);
-            }
-            System.out.println();
-        } */
-        System.out.println(count/(x*y*z));
-        return this.pointState;
+        float result = count/((x-x0)*(y-y0)*(z-z0));
+        return result;
     }
 }

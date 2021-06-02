@@ -1,11 +1,19 @@
 import java.util.List;
 
+import javax.swing.SwingUtilities;
+
 import controller.BlockController;
 import controller.RoomController;
 import georegression.struct.point.Point3D_F32;
 import model.Camera;
 import service.ReadFileService;
 import service.impl.ReadFileServiceImpl;
+import view.FirstXPlane;
+import view.FirstYPlane;
+import view.LastXPlane;
+import view.LastYPlane;
+import view.ParentPlane;
+import view.ZPlane;
 
 
 public class Main {
@@ -57,6 +65,22 @@ public class Main {
 		}
 
 		roomController.calculateObservablePoint();
-		roomController.getPointsState();
+		System.out.println(roomController.getObservablePercent());
+
+		boolean[][][] state = roomController.getPointsState();
+		ParentPlane[] planes = new ParentPlane[5];
+		planes[0] = new FirstXPlane(state);
+		planes[1] = new LastXPlane(state);
+		planes[2] = new FirstYPlane(state);
+		planes[3] = new LastYPlane(state);
+		planes[4] = new ZPlane(state);
+		
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+			   for (ParentPlane plane : planes) {
+				   plane.drawPlane();
+			   }
+			}
+		 });
     }
 }
