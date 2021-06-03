@@ -201,7 +201,7 @@ public class Application {
 						JOptionPane.showMessageDialog(null, "File not found!!!!!!!!!");
 					}
 				} else {
-					JOptionPane.showMessageDialog(null, "Accuracy must be 10 or in range 100 to 300 !!!");
+					JOptionPane.showMessageDialog(null, "Accuracy must be 10 or in range 50 to 300 !!!");
 				}
 
 			}
