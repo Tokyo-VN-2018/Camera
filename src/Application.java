@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 import controller.BlockController;
+import controller.CameraController;
 import controller.RoomController;
 import georegression.struct.point.Point3D_F32;
 import model.Camera;
@@ -181,8 +182,8 @@ public class Application {
 
 						for (Float[] camPoints : camInfos) {
 							roomController
-									.addCamera(new Camera(new Point3D_F32(camPoints[0], camPoints[1], camPoints[2]),
-											camPoints[3].intValue(), camPoints[4].intValue(), 10000));
+									.addCamera(new CameraController(new Camera(new Point3D_F32(camPoints[0], camPoints[1], camPoints[2]),
+											camPoints[3].intValue(), camPoints[4].intValue(), 10000)).getCameraModel());
 						}
 
 						// Calculate Observable Point
