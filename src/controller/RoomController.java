@@ -138,8 +138,8 @@ public class RoomController {
                     }
                 }
             } else {
-                for (int i = (int)points[0].getX(); i < (int)points[2].getX(); i++) {
-                    for (int j = (int)points[0].getY(); j < (int)points[1].getY(); j++) {
+                for (int i = (int)points[0].getX(); i < (int)points[1].getX(); i++) {
+                    for (int j = (int)points[0].getY(); j < (int)points[2].getY(); j++) {
                         Point3D_F32 curPoint = new Point3D_F32(i, j, points[0].getZ());
                         LineParametric3D_F32 line = mathCalService.getLineParametric(camera.getLocation(), curPoint);
                         List<Point3D_F32> intersections = new ArrayList<>();

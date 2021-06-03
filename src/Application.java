@@ -185,7 +185,6 @@ public class Application {
 									.addCamera(new CameraController(new Camera(new Point3D_F32(camPoints[0], camPoints[1], camPoints[2]),
 											camPoints[3].intValue(), camPoints[4].intValue(), 10000)).getCameraModel());
 						}
-
 						// Calculate Observable Point
 						roomController.calculateObservablePoint();
 
@@ -199,6 +198,7 @@ public class Application {
 						viewFrame.setVisible(true);
 					} catch (Exception exc) {
 						JOptionPane.showMessageDialog(null, "File not found!!!!!!!!!");
+						exc.printStackTrace();
 					}
 				} else {
 					JOptionPane.showMessageDialog(null, "Accuracy must be 10 or in range 50 to 300 !!!");

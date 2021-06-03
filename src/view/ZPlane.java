@@ -18,7 +18,7 @@ public class ZPlane extends ParentPlane {
                 } else {
                     g.setColor(Color.BLACK);
                 }
-                g.fillRect(j*scale, (z-i)*scale, scale, scale);
+                g.fillRect(j*scale, (y-i)*scale, scale, scale);
             }
          }
     }

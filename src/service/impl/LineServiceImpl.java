@@ -101,7 +101,7 @@ public class LineServiceImpl implements LineService {
     @Override
     public Point3D_F32 getPointFromZ(LineParametric3D_F32 line, float z) {
         if (line.getSlopeZ() == 0) {
-            throw new RuntimeException("Can't get point from x.");
+            throw new RuntimeException("Can't get point from z.");
         }
         float t = (z - line.getZ())/line.getSlopeZ();
         float y = line.getY() + t*line.getSlopeY();

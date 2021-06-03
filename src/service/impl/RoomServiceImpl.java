@@ -140,7 +140,7 @@ public class RoomServiceImpl implements RoomService {
 			points[1] = new Point3D_F32(x + cameraHalfWidth, y + cameraDistance, z - cameraHalfHeight);
 			points[2] = new Point3D_F32(x - cameraHalfWidth, y + cameraDistance, z + cameraHalfHeight);
 		} else if (y == room.getCoordinates()[6].getY()) {
-			int roomDistance = (int)(room.getCoordinates()[6].getX() - room.getCoordinates()[0].getX());
+			int roomDistance = (int)(room.getCoordinates()[6].getY() - room.getCoordinates()[0].getY());
 			cameraDistance = cameraDistance > roomDistance ? roomDistance : cameraDistance;
 			
 			int cameraHalfHeight = (int)(Math.tan(Math.PI*camera.getAngleHeight()/360)*cameraDistance);
@@ -150,7 +150,7 @@ public class RoomServiceImpl implements RoomService {
 			points[1] = new Point3D_F32(x + cameraHalfWidth, y - cameraDistance, z - cameraHalfHeight);
 			points[2] = new Point3D_F32(x - cameraHalfWidth, y - cameraDistance, z + cameraHalfHeight);
 		} else if (z == room.getCoordinates()[6].getZ()) {
-			int roomDistance = (int)(room.getCoordinates()[6].getX() - room.getCoordinates()[0].getX());
+			int roomDistance = (int)(room.getCoordinates()[6].getZ() - room.getCoordinates()[0].getZ());
 			cameraDistance = cameraDistance > roomDistance ? roomDistance : cameraDistance;
 			
 			int cameraHalfHeight = (int)(Math.tan(Math.PI*camera.getAngleHeight()/360)*cameraDistance);
