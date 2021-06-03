@@ -151,7 +151,7 @@ public class Application {
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "Accuracy must be Integer number !!!");
 				}
-				if (100 <= accu && accu <= 300) {
+				if (50 <= accu && accu <= 300) {
 					check = true;
 				}
 
@@ -219,7 +219,7 @@ public class Application {
 		lblNewLabel_2_1.setBounds(391, 252, 352, 25);
 		frmCameraProjector.getContentPane().add(lblNewLabel_2_1);
 
-		JLabel lblNewLabel_2_1_1 = new JLabel("Accuracy can input in range from 100 to 300");
+		JLabel lblNewLabel_2_1_1 = new JLabel("Accuracy can input in range from 50 to 300");
 		lblNewLabel_2_1_1.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 16));
 		lblNewLabel_2_1_1.setBounds(391, 272, 352, 25);
 		frmCameraProjector.getContentPane().add(lblNewLabel_2_1_1);
