@@ -39,7 +39,7 @@ public class ReadFileServiceImpl implements ReadFileService{
 	}
 
 	@Override
-	public List<String> readFilefromS(String pathString) {
+	public List<String> readFilefromS(String pathString) throws Exception {
 		
 		List<String> strings = new ArrayList<>();
         
@@ -54,6 +54,7 @@ public class ReadFileServiceImpl implements ReadFileService{
 		scan.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+			throw e;
 		}
 		
 		return strings;

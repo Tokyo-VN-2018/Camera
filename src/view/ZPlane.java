@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 import controller.RoomController;
@@ -25,5 +26,6 @@ public class ZPlane extends ParentPlane {
     public ZPlane(boolean[][][] state) {
         super(state);
         this.name = "ZPlane";
+        this.setPreferredSize(new Dimension(x*scale, y*scale));
     }
 }

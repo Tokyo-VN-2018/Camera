@@ -4,7 +4,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
-import javax.swing.plaf.metal.MetalBorders.PaletteBorder;
 
 import view.FirstXPlane;
 import view.FirstYPlane;
@@ -14,16 +13,12 @@ import view.ParentPlane;
 import view.ZPlane;
 
 import java.awt.Color;
-import java.awt.Dimension;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
-import javax.swing.JTextField;
-import javax.swing.JEditorPane;
-import javax.swing.ScrollPaneConstants;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.math.RoundingMode;

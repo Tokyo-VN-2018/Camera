@@ -14,7 +14,7 @@ public interface ReadFileService {
 	/**
 	 * Get the entire contents of the file
 	 */
-	List<String> readFilefromS(String pathString);
+	List<String> readFilefromS(String pathString) throws Exception;
 	
 	/**
 	 * get room coordinates from file
