@@ -9,17 +9,17 @@ public interface ReadFileService {
 	/**
 	 * Get coordinates from string
 	 */
-	Point3D_F32[] extractCoor(String string);
+	Point3D_F32[] extractCoor(String string, int accuracy);
 	
 	/**
 	 * Get the entire contents of the file
 	 */
-	List<String> readFilefromS(String pathString);
+	List<String> readFilefromS(String pathString) throws Exception;
 	
 	/**
 	 * get room coordinates from file
 	 */
-	Point3D_F32[] getCoorRoom(List<String> strings);
+	Point3D_F32[] getCoorRoom(List<String> strings, int accuracy);
 	
 	/**
 	 * Get number of Block
@@ -29,7 +29,7 @@ public interface ReadFileService {
 	/**
 	 * Get blocks coordinates
 	 */
-	List<Point3D_F32[]> getCoorBlock(List<String> strings);
+	List<Point3D_F32[]> getCoorBlock(List<String> strings, int accuracy);
 	
 	/**
 	 * Get number of Camera
@@ -39,5 +39,5 @@ public interface ReadFileService {
 	/**
 	 * Get location, angle of Camera
 	 */
-	List<Float[]> getCamInfo(List<String> strings);
+	List<Float[]> getCamInfo(List<String> strings, int accuracy);
 }

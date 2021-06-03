@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 import controller.RoomController;
@@ -25,5 +26,6 @@ public class LastXPlane extends ParentPlane {
     public LastXPlane(boolean[][][] state) {
         super(state);
         this.name = "LastXPlane";
+        this.setPreferredSize(new Dimension(y*scale, z*scale));
     }
 }

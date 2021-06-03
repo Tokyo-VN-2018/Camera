@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 import controller.RoomController;
@@ -25,5 +26,6 @@ public class FirstYPlane extends ParentPlane {
     public FirstYPlane(boolean[][][] state) {
         super(state);
         this.name = "FirstYPlane";
+        this.setPreferredSize(new Dimension(x*scale, z*scale));
     }
 }

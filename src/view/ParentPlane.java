@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.*;
 
@@ -23,8 +24,9 @@ public abstract class ParentPlane extends JPanel {
         this.name = "";
         int max = x>y?x:y;
         max = max>z?max:z;
-        scale = (int)Math.floor(500/max);
+        scale = (int)Math.floor(400/max);
         scale = scale<1?1:scale;
+        this.setPreferredSize(new Dimension(400, 400));
     }
 
     public void drawPlane() {
