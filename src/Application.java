@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 
 import controller.BlockController;
 import controller.RoomController;
@@ -14,16 +13,8 @@ import georegression.struct.point.Point3D_F32;
 import model.Camera;
 import service.ReadFileService;
 import service.impl.ReadFileServiceImpl;
-import view.FirstXPlane;
-import view.FirstYPlane;
-import view.LastXPlane;
-import view.LastYPlane;
-import view.ParentPlane;
-import view.ZPlane;
 
 import java.awt.Color;
-import java.awt.Component;
-import javax.swing.Box;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -151,6 +142,7 @@ public class Application {
 				
 				int accu = 0;
 				float percentObser = 0;
+				boolean check = false;
 				
 				String fileLink = txtFileLink.getText();
 				String accuracy = txtAccuracy.getText();
@@ -160,8 +152,11 @@ public class Application {
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, "Accuracy must be Integer number !!!");
 				}
+				if (100 <= accu && 100 <= 300) {
+					check = true;
+				}
 				
-				if (accu == 10 || accu == 100) {
+				if (accu == 10 || check) {
 					
 					// Get file's content
 			    	List<String> strings = readFileService.readFilefromS(fileLink);
@@ -171,9 +166,6 @@ public class Application {
 			    	
 			    	// Initialize Room Controller
 			    	RoomController roomController = new RoomController(coorRoom);
-			    	
-			    	// Get number of Blocks
-//					int nOB = readFileService.getNumOfBlock(strings);
 					
 					// Get blocks' coordinates
 					List<Point3D_F32[]> coorBlocks = readFileService.getCoorBlock(strings, accu);
@@ -183,8 +175,6 @@ public class Application {
 						BlockController blockController = new BlockController(blockPoints);
 						roomController.addBlock(blockController.getBlock());
 					}
-					
-					//int numOfCam = readFileService.getNumOfCam(strings);
 					
 					// Get cameras' coordinates ( 1st, 2nd, 3rd is camera's location, 4th, 5th is camera's angle)
 					List<Float[]> camInfos = readFileService.getCamInfo(strings, accu);
@@ -207,13 +197,13 @@ public class Application {
 					
 
 				}else {
-					JOptionPane.showMessageDialog(null, "Accuracy must be 10 or 100 !!!");
+					JOptionPane.showMessageDialog(null, "Accuracy must be 10 or in range 100 to 300 !!!");
 				}
 				
 			}
 		});
 		btnCalculate.setFont(new Font("Showcard Gothic", Font.PLAIN, 16));
-		btnCalculate.setBounds(495, 287, 148, 48);
+		btnCalculate.setBounds(495, 310, 148, 48);
 		frmCameraProjector.getContentPane().add(btnCalculate);
 		
 		JLabel lblNewLabel_2 = new JLabel("10:   Accurate to the decimeter");
@@ -225,5 +215,10 @@ public class Application {
 		lblNewLabel_2_1.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 16));
 		lblNewLabel_2_1.setBounds(391, 252, 352, 25);
 		frmCameraProjector.getContentPane().add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_2_1_1 = new JLabel("Accuracy can input in range from 100 to 300");
+		lblNewLabel_2_1_1.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 16));
+		lblNewLabel_2_1_1.setBounds(391, 272, 352, 25);
+		frmCameraProjector.getContentPane().add(lblNewLabel_2_1_1);
 	}
 }

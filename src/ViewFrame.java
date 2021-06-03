@@ -25,6 +25,8 @@ import javax.swing.JTextField;
 import javax.swing.JEditorPane;
 import javax.swing.ScrollPaneConstants;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.awt.event.ActionEvent;
 
 public class ViewFrame extends JFrame {
@@ -44,19 +46,14 @@ public class ViewFrame extends JFrame {
 		ParentPlane[] planes = new ParentPlane[5];
 
 		planes[0] = new FirstXPlane(state);
-		planes[0].setPreferredSize(new Dimension(400, 400));
 
 		planes[1] = new LastXPlane(state);
-		planes[1].setPreferredSize(new Dimension(400, 400));
 
 		planes[2] = new FirstYPlane(state);
-		planes[2].setPreferredSize(new Dimension(400, 400));
 
 		planes[3] = new LastYPlane(state);
-		planes[3].setPreferredSize(new Dimension(400, 400));
 
 		planes[4] = new ZPlane(state);
-		planes[4].setPreferredSize(new Dimension(400, 400));
 
 		JScrollPane scrollPane_0 = new JScrollPane();
 		scrollPane_0.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
@@ -105,7 +102,12 @@ public class ViewFrame extends JFrame {
 		panel.add(lblPercent);
 		lblPercent.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPercent.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		lblPercent.setText(Float.toString(percent * 100) + " %");
+		
+		BigDecimal bigDecimal = new BigDecimal(Float.toString(percent * 100));
+        bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
+		
+//		lblPercent.setText(Float.toString(percent * 100) + " %");
+		lblPercent.setText(bigDecimal + " %");
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
@@ -116,6 +118,32 @@ public class ViewFrame extends JFrame {
 		btnCancel.setFont(new Font("Showcard Gothic", Font.PLAIN, 14));
 		btnCancel.setBounds(122, 206, 104, 42);
 		panel.add(btnCancel);
+		
+		JLabel lblNewLabel = new JLabel("First X Plane");
+		lblNewLabel.setFont(new Font("Showcard Gothic", Font.PLAIN, 13));
+		lblNewLabel.setBounds(135, 335, 100, 25);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblLastXPlane = new JLabel("Last X Plane");
+		lblLastXPlane.setFont(new Font("Showcard Gothic", Font.PLAIN, 13));
+		lblLastXPlane.setBounds(546, 335, 100, 25);
+		contentPane.add(lblLastXPlane);
+		
+		JLabel lblFirstYPlane = new JLabel("First Y Plane");
+		lblFirstYPlane.setFont(new Font("Showcard Gothic", Font.PLAIN, 13));
+		lblFirstYPlane.setBounds(949, 335, 100, 25);
+		contentPane.add(lblFirstYPlane);
+		
+		JLabel lblLastYPlane = new JLabel("Last Y Plane");
+		lblLastYPlane.setFont(new Font("Showcard Gothic", Font.PLAIN, 13));
+		lblLastYPlane.setBounds(135, 678, 100, 25);
+		contentPane.add(lblLastYPlane);
+		
+		JLabel lblZPlane = new JLabel("Z Plane");
+		lblZPlane.setHorizontalAlignment(SwingConstants.CENTER);
+		lblZPlane.setFont(new Font("Showcard Gothic", Font.PLAIN, 13));
+		lblZPlane.setBounds(546, 678, 100, 25);
+		contentPane.add(lblZPlane);
 
 	}
 }
